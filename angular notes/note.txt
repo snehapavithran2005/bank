@@ -1,0 +1,20 @@
+angular is a frame work
+loat of frame worksnode -v -to find version
+
+js not support interface
+typescript- type paranju kodukkan
+           -open source type
+
+angular behavior -trancepailing
+   - to run using angular command line interface              
+angular lates vertion-14.1.2
+
+
+if any error for installation= to open new terminal and type 
+npm i--force
+ to run the project in localhost4200
+modules and components for a anguar run
+@ ethidne koode ethu kandalum call decorator
+to create component
+ng g c test
+to update

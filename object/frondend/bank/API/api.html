@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX</title>
+</head>
+<body>
+    <h1>To Do List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>User Id</th>
+                <th> Id</th>
+                <th>Title</th>
+                <th>Completed</th>
+            </tr>
+        </thead>
+        <tbody id="result">
+
+        </tbody>
+    </table>
+    
+</body>
+<script>
+    // AJAX - asynchronous Js and XML - tro call API
+
+    // a. using XmlHttpRequest
+
+    // 1. create  an object for XmlHttpRequest
+    const req = new XmlHttpRequest()
+
+    //2. using XmlHttpRequest object open a connection via api url
+    req.open('get','https://jsonplaceholder.typicode.com/todos')
+
+    // 3. call api
+    req.send()
+
+    req.onreadystatechange=()=>{
+        if(req.readyState==4){
+            if(req.Status>=200 && req.status<300){
+                todos =JSON.Parse(req.responseText)
+                populateData(todos)
+            }
+            else{
+                console.log("Data Cant Fetched");
+            }        
+        }
+    }
+    function populateData(todos){
+        console.log(todos)
+        htmlData=``
+        for(let todo of todos){
+            htmlData=`
+            <tr>
+                <td> ${todo.userId} </td>
+                <td> ${todo.id} </td>
+                <td> ${todo.title} </td>
+                <td> ${todo.completed} </td>
+                </tr>
+                `
+                result.innerHTML +``= htmlData
+                 
+        } 
+    }
+
+    
+    
+    </script>
+</html>
